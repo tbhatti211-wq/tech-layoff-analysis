@@ -6,7 +6,7 @@
 [![SQLite](https://img.shields.io/badge/SQLite-3-blue?logo=sqlite)](https://sqlite.org)
 [![Tableau](https://img.shields.io/badge/Tableau-Dashboard-orange?logo=tableau)](https://public.tableau.com)
 [![License](https://img.shields.io/badge/Data-ODbL-green)](https://opendatacommons.org/licenses/odbl/)
-[![Status](https://img.shields.io/badge/Status-In%20Progress-yellow)]()
+[![Status](https://img.shields.io/badge/Status-Complete-brightgreen)]()
 
 ---
 
@@ -27,6 +27,9 @@ Tech layoffs between 2020 and 2025 tell a story that spans pandemic over-hiring,
 ```
 tech-layoff-analysis/
 │
+├── dashboard
+│   └── Tech lay off analysis 2020-2026.twb # Tableau Dashboard file 
+│  
 ├── data/
 │   ├── raw/                    # Original CSV from Kaggle (gitignored)
 │   └── processed/              # Cleaned output after ETL
@@ -112,14 +115,40 @@ Key queries run against SQLite:
 - Country-level aggregations with YoY comparison
 
 ### Phase 3: Tableau Dashboard
-*(Link to Tableau Public coming soon)*
+**Interactive dashboard complete** — visualize layoff trends across industries, funding stages, and geography.
 
-Dashboard views:
-1. **Timeline View** — Monthly layoff volume 2020–2025, annotated with macro events
-2. **Industry Breakdown** — Treemap of total layoffs by sector
-3. **Stage Analysis** — Which funding stages are most vulnerable?
-4. **Geography Map** — Country-level heat map with layoff density
-5. **Top Companies** — Bar chart race or ranked table by year
+---
+
+## 📈 Key Findings
+
+- **2022 saw the largest single-year layoff volume** in the dataset, driven by post-pandemic corrections at consumer tech giants
+- **Series C–E companies** showed the highest average `percentage_laid_off`, suggesting mid-stage growth-phase companies were disproportionately exposed
+- **The United States accounted for ~60% of all layoff events**, though India saw the highest proportional growth in events YoY
+- **Consumer, Retail, and Transportation sectors** led in absolute headcount cuts; **Crypto and EdTech** led in company shutdowns (100% layoffs)
+
+---
+
+## 📊 Tableau Dashboard
+
+**Interactive dashboard built in Tableau** — explore 2,500+ layoff events across industries, funding stages, and time periods.
+
+### Dashboard Views
+- **KPI Cards:** Total events (3,617), total headcount (843K+), unique companies (2,497), countries affected (61)
+- **Layoffs Over Time:** Line chart by industry (2020–2026) with logarithmic scale and interactive year filter
+- **Top Industries:** Ranked bar chart of industries by total layoffs
+- **Funding Stage Analysis:** Breakdown of layoffs by company stage (Post-IPO, Acquired, Series rounds, etc.)
+
+### Key Features
+- **Global year filter** — adjust timeline, all charts update in real-time
+- **Interactive tooltips** — hover to see detailed metrics (industry, total laid off, percentage)
+- **Color-coded theme** — brown/orange/red palette reflects "alarm" narrative (layoffs = disruption, not growth)
+- **2-column layout** — left side tells the trend story, right side shows dimensional breakdowns
+
+### How to View
+1. Download `Tech lay off analysis 2020-2026.twb` from `/dashboard/` folder
+2. Open in **Tableau Desktop** (recommended) or **Tableau Public** (free)
+3. Use filters to drill into specific years or time periods
+4. Hover over charts for detailed metrics
 
 ---
 
@@ -134,7 +163,7 @@ Dashboard views:
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/YOUR_USERNAME/tech-layoff-analysis.git
+git clone https://github.com/tbhatti211-wq/tech-layoff-analysis.git
 cd tech-layoff-analysis
 
 # 2. Install dependencies
@@ -154,17 +183,6 @@ python scripts/load_to_sqlite.py
 # 6. Open notebooks
 jupyter notebook
 ```
-
----
-
-## 📈 Key Findings
-
-> *To be updated as analysis progresses.*
-
-- **2022 saw the largest single-year layoff volume** in the dataset, driven by post-pandemic corrections at consumer tech giants
-- **Series C–E companies** showed the highest average `percentage_laid_off`, suggesting mid-stage growth-phase companies were disproportionately exposed
-- **The United States accounted for ~60% of all layoff events**, though India saw the highest proportional growth in events YoY
-- **Consumer, Retail, and Transportation sectors** led in absolute headcount cuts; **Crypto and EdTech** led in company shutdowns (100% layoffs)
 
 ---
 
@@ -188,4 +206,4 @@ Data sourced from [layoffs.fyi](https://layoffs.fyi) and distributed under the [
 
 ---
 
-*Last updated: March 2026*
+*Last updated: May 2026*
